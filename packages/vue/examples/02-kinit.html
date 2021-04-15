@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <div id="app">{{title}}</div>
+  
+  <script>
+    // 创建rendener
+    const createRenderer = (options) => {
+      // 将vnode转换为真实节点，挂载到宿主元素
+      const render = (vnode, container) => {
+
+      }
+      return {
+        render,
+        createApp: createAppAPI(render)
+      }
+    }
+
+    // 参数是特定平台的节点操作方法和属性操作方法 
+    const renderer = createRenderer({})
+
+    const Vue = {
+      createApp(options) {
+        return renderer.createApp(options)
+      }
+    }
+
+    // 创建app实例
+    Vue.createApp({
+      data() {
+        return {
+          title: 'hello, vue3'
+        }
+      }
+    }).mount("#app")
+  </script>
+  
+</body>
+</html>
+  
